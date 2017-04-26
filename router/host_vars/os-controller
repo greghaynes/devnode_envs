@@ -1,0 +1,25 @@
+devnodes:
+  public_keys:
+    greghanes: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5IpHCQ7Al/mCCe5NA2oV+Fdl81fchk29zXhZDo7tpPOjiSBWK3xtM0NHoENwVlvrtrimTnJl2JwfHApIVe+eBbBYpvNLGr4xBEhcXxL39TGfxQasBd7CJVJmZ+nQKrtzl+ghLYDcNlk8Yb+pnI2xK7A073swoffv1c/lHOl3irn5LYhP53N6f4+F06+sb5moMH9GKigtcJEPN7796YGoII+wUNTnZJJCC1g7e9BU3QYVLI1sRdlQ/KWHRwsS3GEAMxktbWPFuuwbOAwPIosCqHDATPyxhBMnf3j8A6K4XIqMLHVKBrGrMKUw//Fh3yklopQoP4xAbTM8iIxxIU+Ur /media/greghaynes/LinuxUDF1/ssh-keys/id_rsa
+  cpus: 1
+  memory: 16384
+  disk_size: 40G
+  links:
+    - id: ens3
+      bridge: br-int-vlan4
+      mtu: 1500
+      type: phy
+  networks:
+    - type: ipv4_dhcp
+      link: ens3
+      id: vlan4
+
+dibcreate_env_vars:
+  PATH: /home/greghaynes/venvs/ansible/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+  DIB_DISTRIBUTION_MIRROR: http://ubuntu.osuosl.org/ubuntu
+  DIB_DEV_USER_PWDLESS_SUDO: 1
+  DIB_DEV_USER_USERNAME: greghaynes
+  DIB_DEV_USER_AUTHORIZED_KEYS: /home/greghaynes/.ssh/authorized_keys
+
+dibcreate_dib_path: /home/greghaynes/venvs/ansible/bin/disk-image-create
+
